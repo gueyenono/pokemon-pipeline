@@ -1,0 +1,18 @@
+---
+title: Pokemon Average Attributes by Type
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+targets::tar_load(attrs_by_type)
+source(here::here("R/visualization.R"))
+
+attrs <- setdiff(x = names(attrs_by_type), y = "type")
+chosen_attr <- sample(attrs, size = 1)
+
+make_barchat(attrs_by_type, col = chosen_attr)
+```
+
+Report created at: **`r Sys.time()`**.
