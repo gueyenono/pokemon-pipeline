@@ -24,10 +24,8 @@
 name: run-pipeline
 
 on:
-  push:
-    branches:
-      - main
-      - master
+  schedule:
+    - cron: */5 * * * *
 
 jobs:
   targets:
