@@ -1,7 +1,5 @@
 name|type|parent|branches|progress
-poke_data|stem|poke_data|0|dispatched
-poke_data|stem|poke_data|0|completed
-attrs_by_type|stem|attrs_by_type|0|dispatched
-attrs_by_type|stem|attrs_by_type|0|completed
+poke_data|stem|poke_data|0|skipped
+attrs_by_type|stem|attrs_by_type|0|skipped
 report|stem|report|0|dispatched
 report|stem|report|0|completed
