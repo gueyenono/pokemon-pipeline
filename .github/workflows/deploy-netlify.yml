@@ -1,0 +1,36 @@
+name: deploy-netlify
+
+on:
+  workflow_run:
+    workflows: ["run-pipeline"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Only deploy if the pipeline succeeded (workflow_run also fires on failure)
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Checkout pipeline outputs
+        uses: actions/checkout@v7
+        with:
+          ref: targets-runs
+          fetch-depth: 1
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v4
+        with:
+          publish-dir: ./reporting
+          production-branch: main
+          production-deploy: true
+          deploy-message: "Deployed from GitHub Actions run ${{ github.run_id }}"
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5

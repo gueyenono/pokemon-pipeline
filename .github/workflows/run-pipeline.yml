@@ -29,7 +29,7 @@ on:
       - main
       - master
   schedule:
-    - cron: */5 * * * *
+    - cron: '*/5 * * * *'
 
 jobs:
   targets:
