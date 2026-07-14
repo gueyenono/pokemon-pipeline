@@ -23,13 +23,16 @@
 
 name: run-pipeline
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
       - main
       - master
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
 
 jobs:
   targets:
