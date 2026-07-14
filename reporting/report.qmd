@@ -14,3 +14,5 @@ chosen_attr <- sample(attrs, size = 1)
 
 make_barchat(attrs_by_type, col = chosen_attr)
 ```
+
+Report created at: **`r Sys.time()`**.
