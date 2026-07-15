@@ -21,6 +21,9 @@ jobs:
           ref: targets-runs
           fetch-depth: 1
 
+      - name: Rename report to index.html
+        run: cp reporting/report.html reporting/index.html
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v4
         with:
