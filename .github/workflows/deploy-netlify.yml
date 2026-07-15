@@ -25,7 +25,7 @@ jobs:
         uses: nwtgck/actions-netlify@v4
         with:
           publish-dir: ./reporting
-          production-branch: main
+          production-branch: master
           production-deploy: true
           deploy-message: "Deployed from GitHub Actions run ${{ github.run_id }}"
           enable-pull-request-comment: false
