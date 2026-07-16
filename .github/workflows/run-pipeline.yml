@@ -32,7 +32,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '*/20 * * * *'
+    - cron: '0 * * * *'
 
 jobs:
   targets:
